@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="1000.0" styleClass="screen" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventoryapp.controller.MainController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="1000.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="1000.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="294.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Inventory Management System" textFill="#1b4d66">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <GridPane styleClass="rounded-border" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="5.0" percentHeight="20.0" prefHeight="5.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="30.0" prefHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Parts">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlePartsSearch" text="Search" />
+                  <Region HBox.hgrow="SOMETIMES" />
+                  <TextField fx:id="partsSearchText" onAction="#handlePartsSearch" promptText="Enter Name or ID" />
+               </children>
+            </HBox>
+            <TableView fx:id="partTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn fx:id="partIdCol" prefWidth="112.0" text="Part ID" />
+                <TableColumn fx:id="partNameCol" prefWidth="112.0" text="Part Name" />
+                  <TableColumn fx:id="partInvCol" prefWidth="112.0" text="Inventory Level" />
+                  <TableColumn fx:id="partPriceCol" prefWidth="112.0" text="Price/Cost per Unit" />
+              </columns>
+            </TableView>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleAddPartBtn" prefHeight="30.0" prefWidth="75.0" text="Add" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="133.0" layoutY="182.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleModifyPartBtn" prefHeight="30.0" prefWidth="75.0" text="Modify" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="245.0" layoutY="182.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleDeletePartBtn" prefHeight="30.0" prefWidth="75.0" text="Delete" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <GridPane styleClass="rounded-border" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="5.0" percentHeight="20.0" prefHeight="5.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="30.0" prefHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Products">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleProductsSearch" text="Search" />
+                  <Region HBox.hgrow="SOMETIMES" />
+                  <TextField fx:id="productsSearchText" onAction="#handleProductsSearch" promptText="Enter Name or ID" />
+               </children>
+            </HBox>
+            <TableView fx:id="productTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="1">
+               <columns>
+                  <TableColumn fx:id="productIdCol" prefWidth="112.0" text="Product ID" />
+                  <TableColumn fx:id="productNameCol" prefWidth="112.0" text="Product Name" />
+                  <TableColumn fx:id="productInvCol" prefWidth="112.0" text="Inventory Level" />
+                  <TableColumn fx:id="productPriceCol" prefWidth="112.0" text="Price per Unit" />
+               </columns>
+            </TableView>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleAddProductBtn" prefHeight="30.0" prefWidth="75.0" text="Add" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="133.0" layoutY="182.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleModifyProductBtn" prefHeight="30.0" prefWidth="75.0" text="Modify" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="245.0" layoutY="182.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleDeleteProductBtn" prefHeight="30.0" prefWidth="75.0" text="Delete" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleExitBtn" prefHeight="30.0" prefWidth="75.0" text="Exit">
+               <HBox.margin>
+                  <Insets right="25.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="20.0" right="20.0" />
+   </padding>
+</GridPane>

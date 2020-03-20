@@ -1,0 +1,13 @@
+.screen {
+     -fx-background-color:  #D8D8D8;
+}
+
+.rounded-border {
+    -fx-border-color: #ACACAC;
+    -fx-border-radius: 10;
+}
+
+#errMessage {
+    -fx-text-fill: #e10505;
+    -fx-text-alignment: center;
+}
